@@ -106,6 +106,8 @@ class WebSocketTransport extends AbstractTransport {
       }
     } on SocketException catch (exception) {
       _onConnectionLost!.complete(exception);
+    } on WebSocketException catch (exception) {
+      _onConnectionLost!.complete(exception);
     }
   }
 
